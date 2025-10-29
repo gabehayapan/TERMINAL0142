@@ -4,121 +4,11 @@ Ultra-fast MVP: Text-based 'No Midnight Ramen' ADV
 Usage: python3 runner.py
 """
 import json, sys, os, time, sys
-def opening_animation():
-    # Frames of the animation (each frame will overwrite the previous one)
-    frames = [
-	"""\
-	  __________________________________
-	 /EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\\
-	/\E                                E/\\
-	  \E                              E/
-	   \E                            E/
-	    \E                          E/
-	     \E                        E/
-	      \E                      E/
-	       \E                    E/
-		\EEEEEEEEEEEEEEEEEEEE/
-	""",  # Empty cup (initial state)
 
-	"""\
-		  __
-		  EI\\
-		   EI\\
-		    EI\\
-		     EI\\
-		      EQ\\
-		       VMmmmmmmmmmmmmmmmmmmm\\
-	/\E77777777777777777777777777777777E/\\
-	  \E                              E/
-	   \E                            E/
-	    \E                          E/
-	     \E                        E/
-	      \E                      E/
-	       \E                    E/
-		\EEEEEEEEEEEEEEEEEEEE/
-	""",  # First pour (water level 1)
+from animation import opening_animation
+from animation import ending_animation
 
-        """\
-     88HO         __
-      ''H         EI\\
-	+OO        EI\\
-	  HO'       EI\\
-	  ;HO'       EI\\
-	   'HO        EQ\\
-	   ;OHH        VMmmmmmmmmmmmmmmmmmmm\\
-	/\E77777777777777777777777777777777E/\\
-	  \E                              E/
-	   \E                            E/
-	    \E                          E/
-	     \E                        E/
-	      \E                      E/
-	       \E                    E/
-		\EEEEEEEEEEEEEEEEEEEE/
-        """,  # Second pour (water level 2)
-
-        """\
-		  __
-		  EI\\
-		   EI\\
-		    EI\\
-		     EI\\
-		      EQ\\
-		       VMmmmmmmmmmmmmmmmmmmm\\
-	/\E77777777777777777777777777777777E/\\
-	  \E                              E/
-	   \E                            E/
-	    \E                          E/
-	     \E                        E/
-	      \E                      E/
-	       \E                    E/
-		\EEEEEEEEEEEEEEEEEEEE/
-        """,  # Third pour (water level 3)
-
-        """\
-	  __________________________________
-	 /EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\\
-	/\E                                E/\\
-	  \E                              E/
-	   \E                            E/
-	    \E                          E/
-	     \E                        E/
-	      \E                      E/
-	       \E                    E/
-		\EEEEEEEEEEEEEEEEEEEE/
-         """,  # Fourth pour (water level 4)
-
-        """\
-             GGGGGGGGGGGG                AAAAAA
-	    GG          GG             AA
-	   GG            GG          OO
-	  GG              GG        OO
-          GG              GG        OO
-          GG                        OO
-          GG                        OO
-          GG          GGGGGG        OO
-          GG          GGGGGG        OO
-          GG              GG        OO
-           GG             GG         OO
-            GG           GG
-             GGGGGGGGGGGGG
-
-
-
-
-
-        """  # Lid closing after full cup
-    ]
-
-    # Display each frame with a delay to simulate the pouring animation
-    print("Pouring hot water into the ramen cup...")
-    for frame in frames:
-        sys.stdout.write("\r" + frame)  # Overwrite the current line
-        sys.stdout.flush()  # Force the output to update immediately
-        time.sleep(0.5)  # Time interval between frames
-
-    print("\nThe lid is now closed!")
-
-SCENARIO_FILE = os.path.join(os.path.dirname(__file__), "scenario.json")
+SCENARIO_FILE = "scenario.json"
 
 def load_scenario(path):
     try:
@@ -148,6 +38,7 @@ def apply_effect(state, effect):
         state[k] = state.get(k, 0) + v
 
 def main():
+	opening_animation()
 	data = load_scenario(SCENARIO_FILE)
 	node_id = data.get("start")
 	nodes = data.get("nodes", {})
@@ -176,11 +67,12 @@ def main():
 
 		apply_effect(state, choice.get("effect"))
 		node_id = choice["next"]
+	ending_animation()
 
-# エンディング後にステート表示（デバッグ用）
-print("\n[あなたのステータス]")
-for k, v in state.items():
-	print(f"- {k}: {v}")
+	# エンディング後にステート表示（デバッグ用）
+	print("\n[あなたのステータス]")
+	for k, v in state.items():
+		print(f"- {k}: {v}")
 
 if __name__ == "__main__":
     main()
