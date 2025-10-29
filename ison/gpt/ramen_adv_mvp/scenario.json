@@ -1,165 +1,161 @@
 {
-  "start": "room_0",
+	"start": "room_0",
 
 
-  "nodes": {
+	"nodes": {
 
-    "room_0": {
-      "text": "深夜01:12。またカップラーメンを作り始めてしまった。今日は何分にしようかな、、",
-      "choices": [
-        {
-          "label": "誘惑に抗う",
-          "next": "logic_1",
-          "effect": {
-            "will": 1
-          }
-        },
-        {
-          "label": "一口だけ…",
-          "next": "danger_1",
-          "effect": {
-            "will": -1
-          }
-        },
-        {
-          "label": "白湯を沸かす",
-          "next": "tea_1",
-          "effect": {
-            "sleep": 1
-          }
-        }
-      ]
-    },
+	"room_0": {
+	  "text": "深夜01:12。またカップラーメンを作り始めてしまった。今日は何分にしようかな、、",
+	  "choices": []
+	},
 
-    "logic_1": {
-      "text": "理性の声『深夜ラーメンは“明日の自分”への嫌がらせだ。』",
-      "choices": [
-        {
-          "label": "背筋を伸ばす",
-          "next": "be_to_sleep",
-          "effect": {
-            "sleep": 1
-          }
-        },
-        {
-          "label": "まだ悩む",
-          "next": "humor_1"
-        }
-      ]
-    },
+	"first":	{
+		"text":	"深夜になるといつもお腹がすいてしまう。"
+		"choices":	[
+		{
+			"label": "まあ、いつものことか",
+			"next": "be_to_sleep",
+			"effect": {
+			"sleep": 1
+		}
+		},
+		{
+		  "label": "まだ悩む",
+		  "next": "humor_1"
+		}
 
-    "danger_1": {
-      "text": "良心『今食べたら、また“次こそは痩せる”って言う未来。』",
-      "choices": [
-        {
-          "label": "ハッとして我に返る",
-          "next": "logic_1",
-          "effect": {
-            "will": 1
-          }
-        },
-        {
-          "label": "構わず続行",
-          "next": "end_ramen",
-          "effect": {
-            "will": -2
-          }
-        }
-      ]
-    },
-    
+		]
+	},
+
+	"logic_1": {
+	  "text": "理性の声『深夜ラーメンは“明日の自分”への嫌がらせだ。』",
+	  "choices": [
+		{
+			"label": "背筋を伸ばす",
+			"next": "be_to_sleep",
+			"effect": {
+			"sleep": 1
+		}
+		},
+		{
+		  "label": "まだ悩む",
+		  "next": "humor_1"
+		}
+	  ]
+	},
+
+	"danger_1": {
+	  "text": "良心『今食べたら、また“次こそは痩せる”って言う未来。』",
+	  "choices": [
+		{
+		  "label": "ハッとして我に返る",
+		  "next": "logic_1",
+		  "effect": {
+			"will": 1
+		  }
+		},
+		{
+		  "label": "構わず続行",
+		  "next": "end_ramen",
+		  "effect": {
+			"will": -2
+		  }
+		}
+	  ]
+	},
+
 	"humor_1": {
-      "text": "ユーモア『胃は寝たがってるのに、口だけ起きてる。』",
-      "choices": [
-        {
-          "label": "白湯を飲む",
-          "next": "end_tea",
-          "effect": {
-            "sleep": 1
-          }
-        },
-        {
-          "label": "もう一押しが欲しい",
-          "next": "philo_1"
-        }
-      ]
-    },
+	  "text": "ユーモア『胃は寝たがってるのに、口だけ起きてる。』",
+	  "choices": [
+		{
+		  "label": "白湯を飲む",
+		  "next": "end_tea",
+		  "effect": {
+			"sleep": 1
+		  }
+		},
+		{
+		  "label": "もう一押しが欲しい",
+		  "next": "philo_1"
+		}
+	  ]
+	},
 
 	"philo_1": {
-      "text": "哲学『欲を制す者が、翌朝を制す。』",
-      "choices": [
-        {
-          "label": "勝利をつかむ（寝る）",
-          "next": "end_sleep",
-          "effect": {
-            "will": 1
-          }
-        },
-        {
-          "label": "まだ戦う（台所をうろうろ）",
-          "next": "humor_2"
-        }
-      ]
-    },
+	  "text": "哲学『欲を制す者が、翌朝を制す。』",
+	  "choices": [
+		{
+		  "label": "勝利をつかむ（寝る）",
+		  "next": "end_sleep",
+		  "effect": {
+			"will": 1
+		  }
+		},
+		{
+		  "label": "まだ戦う（台所をうろうろ）",
+		  "next": "humor_2"
+		}
+	  ]
+	},
 
 	"humor_2": {
-      "text": "自虐『深夜ラーメン：500円。罪悪感：プライスレス。』",
-      "choices": [
-        {
-          "label": "白湯に切り替える",
-          "next": "end_tea"
-        },
-        {
-          "label": "食べてから考える",
-          "next": "end_ramen"
-        }
-      ]
-    },
+	  "text": "自虐『深夜ラーメン：500円。罪悪感：プライスレス。』",
+	  "choices": [
+		{
+		  "label": "白湯に切り替える",
+		  "next": "end_tea"
+		},
+		{
+		  "label": "食べてから考える",
+		  "next": "end_ramen"
+		}
+	  ]
+	},
 
 	"tea_1": {
-      "text": "湯気が立ちのぼる。体は静かに温まり、目の奥がゆるむ。",
-      "choices": [
-        {
-          "label": "寝室へ向かう",
-          "next": "be_to_sleep"
-        },
-        {
-          "label": "まだ名残惜しい",
-          "next": "humor_1"
-        }
-      ]
-    },
+	  "text": "湯気が立ちのぼる。体は静かに温まり、目の奥がゆるむ。",
+	  "choices": [
+		{
+		  "label": "寝室へ向かう",
+		  "next": "be_to_sleep"
+		},
+		{
+		  "label": "まだ名残惜しい",
+		  "next": "humor_1"
+		}
+	  ]
+	},
 
 	"be_to_sleep": {
-      "text": "あなたは布団へ。明日の朝の一杯は、もっと美味しい。のか、、？",
-      "choices": [
-        {
-          "label": "もう一度リビングへ戻る",
-          "next": "humor_1"
-        },
-        {
-          "label": "そうだ。きっと美味しい。",
-          "next": "end_sleep"
-        }
+	  "text": "あなたは布団へ。明日の朝の一杯は、もっと美味しい。のか、、？",
+	  "choices": [
+		{
+		  "label": "もう一度リビングへ戻る",
+		  "next": "humor_1"
+		},
+		{
+		  "label": "そうだ。きっと美味しい。",
+		  "next": "end_sleep"
+		}
 
 	  ]
-    },
+	},
 
 
 	"end_sleep": {
-      "text": "おやすみなさい。",
-      "choices": []
-    },
+	  "text": "おやすみなさい。",
+	  "choices": []
+	},
 
 	"end_ramen": {
-      "text": "罪悪感はプライスレス。でも体は正直だ…（BAD END）",
-      "choices": []
-    },
+	  "text": "罪悪感はプライスレス。でも体は正直だ…（BAD END）",
+	  "choices": []
+	},
 
 	"end_tea": {
-      "text": "白湯が体を温め、欲は静かに退散。（PEACEFUL END）",
-      "choices": []
-    }
-  }
+	  "text": "白湯が体を温め、欲は静かに退散。（PEACEFUL END）",
+	  "choices": []
+	}
+	}
 
 }

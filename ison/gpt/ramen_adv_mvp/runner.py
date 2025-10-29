@@ -35,39 +35,39 @@ def apply_effect(state, effect):
         state[k] = state.get(k, 0) + v
 
 def main():
-    data = load_scenario(SCENARIO_FILE)
-    node_id = data.get("start")
-    nodes = data.get("nodes", {})
-    state = {"will": 0, "sleep": 0}
+	data = load_scenario(SCENARIO_FILE)
+	node_id = data.get("start")
+	nodes = data.get("nodes", {})
+	state = {"will": 0, "sleep": 0}
 
-    while True:
-        node = nodes.get(node_id)
-        if node is None:
-            print(f"ノード '{node_id}' が見つかりません。scenario.json を確認してください。")
-            sys.exit(1)
+	while True:
+		node = nodes.get(node_id)
+		if node is None:
+			print(f"ノード '{node_id}' が見つかりません。scenario.json を確認してください。")
+			sys.exit(1)
 
-        more = print_node(node)
-        if not more:
-            break
+		more = print_node(node)
+		if not more:
+			break
 
-        try:
-            raw = input("> ").strip()
-            if raw.lower() in ("q", "quit", "exit"):
-                print("終了します。")
-                break
-            idx = int(raw) - 1
-            choice = node["choices"][idx]
-        except (ValueError, IndexError):
-            print("番号を選んでください（終了: q）")
-            continue
+		try:
+			raw = input("> ").strip()
+			if raw.lower() in ("q", "quit", "exit"):
+				print("終了します。")
+				break
+			idx = int(raw) - 1
+			choice = node["choices"][idx]
+		except (ValueError, IndexError):
+			print("番号を選んでください（終了: q）")
+			continue
 
-        apply_effect(state, choice.get("effect"))
-        node_id = choice["next"]
+		apply_effect(state, choice.get("effect"))
+		node_id = choice["next"]
 
-    # エンディング後にステート表示（デバッグ用）
-    print("\n[あなたのステータス]")
-    for k, v in state.items():
-        print(f"- {k}: {v}")
+# エンディング後にステート表示（デバッグ用）
+print("\n[あなたのステータス]")
+for k, v in state.items():
+	print(f"- {k}: {v}")
 
 if __name__ == "__main__":
     main()
