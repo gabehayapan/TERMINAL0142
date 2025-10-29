@@ -1,10 +1,20 @@
 import time
+import os
 import sys
+
+def clear_screen():
+	if os.name == 'nt':
+		os.system('cls')
+	else:
+		os.system('clear')
 
 def opening_animation():
     # Frames of the animation (each frame will overwrite the previous one)
     frames = [
 	"""\
+
+
+
 
 
 	  __________________________________
@@ -47,6 +57,26 @@ def opening_animation():
      88HO         __
       ''H         EI\\
 	+OO        EI\\
+	  H         EI\\
+	             EI\\
+	              EQ\\
+	               VMmmmmmmmmmmmmmmmmmmm\\
+	/\E77777777777777777777777777777777E/\\
+	  \E                              E/
+	   \E                            E/
+	    \E                          E/
+	     \E                        E/
+	      \E                      E/
+	       \E                    E/
+		\EEEEEEEEEEEEEEEEEEEE/
+
+
+
+        """,  # Second pour (water level 2)
+	"""\
+     88HO         __
+      ''H         EI\\
+	+OO        EI\\
 	  HO'       EI\\
 	  ;HO'       EI\\
 	   'HO        EQ\\
@@ -62,7 +92,7 @@ def opening_animation():
 
 
 
-        """,  # Second pour (water level 2)
+	""",
 
         """\
 		  __
@@ -86,6 +116,11 @@ def opening_animation():
         """,  # Third pour (water level 3)
 
         """\
+
+
+
+
+
 	   __________________________________
 	 /EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\\
 	/\E                                E/\\
@@ -121,6 +156,7 @@ def opening_animation():
     # Display each frame with a delay to simulate the pouring animation
     print("\n")
     for frame in frames:
+        clear_screen()
         sys.stdout.write("\r" + frame)  # Overwrite the current line
         sys.stdout.flush()  # Force the output to update immediately
         time.sleep(0.5)  # Time interval between frames
@@ -130,6 +166,9 @@ def opening_animation():
 def ending_animation():
     frames = [
 	"""\
+
+
+
 
 
 	  __________________________________
@@ -305,9 +344,12 @@ def ending_animation():
 
     print("\n")
     for frame in frames:
+        clear_screen()
         sys.stdout.write("\r" + frame)  # Overwrite the current line
         sys.stdout.flush()  # Force the output to update immediately
         time.sleep(0.5)  # Time interval between frames
+    time.sleep(3)
+    clear_screen()
 
     print("\n")
 
