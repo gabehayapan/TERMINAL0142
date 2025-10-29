@@ -41,7 +41,7 @@ def apply_effect(state, effect):
 def parse_duration(s):
 	if ":" in s:
 		m, s = s.split(":")
-		return int(m) * 60 + ins(s)
+		return int(m) * 60 + int(s)
 	return int(s)
 
 def beep():
@@ -60,7 +60,7 @@ def main():
 
 	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
 	timer_sec = parse_duration(user_input)
-	timer = threading.Timer(sec, beep)
+	timer = threading.Timer(timer_sec, beep)
 	timer.start()
 
 	while True:

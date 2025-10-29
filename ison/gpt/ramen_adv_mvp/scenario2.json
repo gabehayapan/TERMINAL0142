@@ -1,0 +1,35 @@
+{
+	"finish":
+
+	"nodes": {
+		"room_1": {
+			"text": "ピピピッ, ピピピッ, ...タイマーが鳴った。"
+			"choices": [
+			{
+				"label": "時間か。食べよう",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			},
+			{
+				"label": "時間か。食べよう",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			},
+			{
+				"label": "時間か。食べよう",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			}
+			]
+		},
+		"end_1": {
+			
+		} 
+	}
+}
