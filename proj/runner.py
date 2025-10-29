@@ -7,9 +7,19 @@ import json, sys, os, time, threading
 
 from animation import opening_animation
 from animation import ending_animation
+from graphics import print_clock_room_0
+from graphics import display_current_time
 
 SCENARIO_FILE = os.path.join(os.path.dirname(__file__), "scenario.json")
 
+def clear_screen():
+	if os.name == 'nt':
+		os.system('cls')
+	else:
+		os.system('clear')
+
+def wait_for_start():
+	input("Press ENTER to start the game!")
 
 def load_scenario(path):
     try:
@@ -53,6 +63,7 @@ def main():
 	node_id = data.get("start")
 	nodes = data.get("nodes", {})
 	state = {"will": 0, "sleep": 0}
+	wait_for_start();
 
 	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
 	timer_sec = parse_duration(user_input)
@@ -60,6 +71,9 @@ def main():
 	timer.start()
 
 	while True:
+		clear_screen()
+		if (node_id == "room_0"):
+			print_clock_room_0()
 		node = nodes.get(node_id)
 		if node is None:
 			print(f"ノード '{node_id}' が見つかりません。scenario.json を確認してください。")
@@ -82,6 +96,11 @@ def main():
 
 		apply_effect(state, choice.get("effect"))
 		node_id = choice["next"]
+
+	clear_screen()
+	display_current_time(timer_sec)
+	time.sleep(2)
+	clear_screen()
 	ending_animation()
 
 	# エンディング後にステート表示（デバッグ用）
