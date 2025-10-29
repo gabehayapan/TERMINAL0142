@@ -131,7 +131,7 @@ def opening_animation():
 opening_animation()
 
 def ending_animation():
-	frame = [
+    frames = [
 	"""\
 
 
@@ -304,7 +304,7 @@ def ending_animation():
 
 
 	"""
-	]
+    ]
 
     print("\n")
     for frame in frames:
@@ -313,3 +313,5 @@ def ending_animation():
         time.sleep(0.5)  # Time interval between frames
 
     print("\n")
+
+ending_animation()
