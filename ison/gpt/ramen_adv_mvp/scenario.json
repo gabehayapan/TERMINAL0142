@@ -6,154 +6,207 @@
 
 	"room_0": {
 	  "text": "深夜01:12。またカップラーメンを作り始めてしまった。今日は何分にしようかな、、",
-	  "choices": []
+	  "choices": [
+		{
+			"label": "1min",
+			"next": "first",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "2min",
+			"next": "first",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "3min",
+			"next": "first",
+			"effect": {
+			"sleep": 1
+			}
+		}
+	  ]
 	},
 
 	"first":	{
-		"text":	"深夜になるといつもお腹がすいてしまう。"
+		"text":	"深夜になるといつもお腹がすいてしまう。",
 		"choices":	[
 		{
 			"label": "まあ、いつものことか",
-			"next": "be_to_sleep",
+			"next": "still-fine",
 			"effect": {
 			"sleep": 1
-		}
+			}
 		},
 		{
-		  "label": "まだ悩む",
-		  "next": "humor_1"
+			"label": "あれだけ食べないと誓ったのに、、",
+			"next": "regret",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "今日は食べない日じゃなかったのか？",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
 		}
-
 		]
 	},
 
-	"logic_1": {
-	  "text": "理性の声『深夜ラーメンは“明日の自分”への嫌がらせだ。』",
-	  "choices": [
+	"still-fine": {
+		"text": "まあね、今日はね。",
+		"choices": [
 		{
-			"label": "背筋を伸ばす",
-			"next": "be_to_sleep",
+			"label": "いいよ。今日までは",
+			"next": "still-fine",
 			"effect": {
 			"sleep": 1
-		}
+			}
 		},
 		{
-		  "label": "まだ悩む",
-		  "next": "humor_1"
-		}
-	  ]
-	},
-
-	"danger_1": {
-	  "text": "良心『今食べたら、また“次こそは痩せる”って言う未来。』",
-	  "choices": [
-		{
-		  "label": "ハッとして我に返る",
-		  "next": "logic_1",
-		  "effect": {
-			"will": 1
-		  }
-		},
-		{
-		  "label": "構わず続行",
-		  "next": "end_ramen",
-		  "effect": {
-			"will": -2
-		  }
-		}
-	  ]
-	},
-
-	"humor_1": {
-	  "text": "ユーモア『胃は寝たがってるのに、口だけ起きてる。』",
-	  "choices": [
-		{
-		  "label": "白湯を飲む",
-		  "next": "end_tea",
-		  "effect": {
+			"label": "今日までだから。明日からは食べないから。",
+			"next": "swear",
+			"effect": {
 			"sleep": 1
-		  }
+			}
 		},
 		{
-		  "label": "もう一押しが欲しい",
-		  "next": "philo_1"
+			"label": "昨日も食べたっけか",
+			"next": "remember",
+			"effect": {
+			"sleep": 1
+			}
 		}
-	  ]
+		]
 	},
 
-	"philo_1": {
-	  "text": "哲学『欲を制す者が、翌朝を制す。』",
+	"swear": {
+		"text": "今日が最後の深夜カップ麺",
+		"choices": [
+		{
+			"label": "って昨日も言っていたような",
+			"next": "remember",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "って昨日も言ってたじゃん",
+			"next": "regret",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "って毎日言ってる。本当に",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
+		}
+		]
+
+	},
+
+	"remember":	{
+		"text":	"そうだ。あの濃ゆいUFOを最後にしたんだった。",
+		"choices":	[
+		{
+			"label": "でもあのソースがうまいんだよなあ",
+			"next": "forget",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "あれだけ食べないと誓ったのに、、",
+			"next": "regret",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "今日は食べないと誓ったじゃないか！",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
+		}
+		]
+	},
+
+	"regret": {
+	  "text": "いつもいつも同じことをくりかえして、、、",
 	  "choices": [
 		{
-		  "label": "勝利をつかむ（寝る）",
-		  "next": "end_sleep",
-		  "effect": {
-			"will": 1
-		  }
+			"label": "でもあのソースがうまいんだよなあ",
+			"next": "end_1",
+			"effect": {
+			"sleep": 1
+			}
 		},
 		{
-		  "label": "まだ戦う（台所をうろうろ）",
-		  "next": "humor_2"
+			"label": "学習能力のない奴は馬鹿だ。",
+			"next": "end_2",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "本当にこのままでいいのか?",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
 		}
-	  ]
+		]
 	},
 
-	"humor_2": {
-	  "text": "自虐『深夜ラーメン：500円。罪悪感：プライスレス。』",
+	"ask": {
+	  "text": "そうだ。今日こそは食べない、、",
 	  "choices": [
 		{
-		  "label": "白湯に切り替える",
-		  "next": "end_tea"
+			"label": "でもつくってしまったからな、、",
+			"next": "end_2",
+			"effect": {
+			"sleep": 1
+			}
 		},
 		{
-		  "label": "食べてから考える",
-		  "next": "end_ramen"
-		}
-	  ]
-	},
-
-	"tea_1": {
-	  "text": "湯気が立ちのぼる。体は静かに温まり、目の奥がゆるむ。",
-	  "choices": [
-		{
-		  "label": "寝室へ向かう",
-		  "next": "be_to_sleep"
+			"label": "学習能力のない奴は馬鹿だ。",
+			"next": "end_2",
+			"effect": {
+			"sleep": 1
+			}
 		},
 		{
-		  "label": "まだ名残惜しい",
-		  "next": "humor_1"
+			"label": "よし！",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
 		}
-	  ]
-	},
-
-	"be_to_sleep": {
-	  "text": "あなたは布団へ。明日の朝の一杯は、もっと美味しい。のか、、？",
-	  "choices": [
-		{
-		  "label": "もう一度リビングへ戻る",
-		  "next": "humor_1"
-		},
-		{
-		  "label": "そうだ。きっと美味しい。",
-		  "next": "end_sleep"
-		}
-
-	  ]
+		]
 	},
 
 
-	"end_sleep": {
-	  "text": "おやすみなさい。",
+	"end_1": {
+	  "text": "今日も旨そうなカップ麺。背徳感やべえ！",
 	  "choices": []
 	},
 
-	"end_ramen": {
-	  "text": "罪悪感はプライスレス。でも体は正直だ…（BAD END）",
+	"end_2": {
+	  "text": "僕はダメな人間なんだ。",
 	  "choices": []
 	},
 
-	"end_tea": {
-	  "text": "白湯が体を温め、欲は静かに退散。（PEACEFUL END）",
+	"end_3": {
+	  "text": "わかった！このカップ麺全部ベランダから投げ捨ててやる！",
 	  "choices": []
 	}
 	}
