@@ -1,0 +1,36 @@
+{
+  "start": "room_0",
+  "nodes": {
+    "room_0": {
+      "text": "深夜。冷蔵庫の前で、麺の呼吸が聞こえる…。",
+      "choices": [
+        { "label": "誘惑に抗う", "next": "logic_1", "effect": {"will": +1} },
+        { "label": "一口だけ…", "next": "danger_1", "effect": {"will": -1} }
+      ]
+    },
+    "logic_1": {
+      "text": "「深夜ラーメンは“明日の自分”への嫌がらせだ。」",
+      "choices": [
+        { "label": "背筋を伸ばす", "next": "end_sleep", "effect": {"sleep": +1} },
+        { "label": "まだ悩む", "next": "humor_1" }
+      ]
+    },
+    "danger_1": {
+      "text": "「今食べたら、また“次こそは痩せる”って言う未来。」",
+      "choices": [
+        { "label": "ハッとして我に返る", "next": "logic_1" },
+        { "label": "構わず続行", "next": "end_ramen" }
+      ]
+    },
+    "humor_1": {
+      "text": "「胃は寝たがってるのに、口だけ起きてる。」",
+      "choices": [
+        { "label": "白湯を飲む", "next": "end_tea" },
+        { "label": "まだ戦う", "next": "logic_1" }
+      ]
+    },
+    "end_sleep":  { "text": "あなたは布団へ。明日の朝の一杯は、もっと美味しい。", "choices": [] },
+    "end_ramen":  { "text": "罪悪感：プライスレス。でも体は正直だ…（BAD END）", "choices": [] },
+    "end_tea":    { "text": "白湯が体を温め、欲は静かに退散。（GOOD END）", "choices": [] }
+  }
+}
