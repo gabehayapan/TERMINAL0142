@@ -6,40 +6,36 @@
 
 	"room_0": {
 	  "text": "深夜01:12。またカップラーメンを作り始めてしまった。今日は何分にしようかな、、",
-	  "choices": [
+	  "choices": []
+	},
+
+	"first":	{
+		"text":	"深夜になるといつもお腹がすいてしまう。"
+		"choices":	[
 		{
-		  "label": "誘惑に抗う",
-		  "next": "logic_1",
-		  "effect": {
-			"will": 1
-		  }
-		},
-		{
-		  "label": "一口だけ…",
-		  "next": "danger_1",
-		  "effect": {
-			"will": -1
-		  }
-		},
-		{
-		  "label": "白湯を沸かす",
-		  "next": "tea_1",
-		  "effect": {
+			"label": "まあ、いつものことか",
+			"next": "be_to_sleep",
+			"effect": {
 			"sleep": 1
-		  }
 		}
-	  ]
+		},
+		{
+		  "label": "まだ悩む",
+		  "next": "humor_1"
+		}
+
+		]
 	},
 
 	"logic_1": {
 	  "text": "理性の声『深夜ラーメンは“明日の自分”への嫌がらせだ。』",
 	  "choices": [
 		{
-		  "label": "背筋を伸ばす",
-		  "next": "be_to_sleep",
-		  "effect": {
+			"label": "背筋を伸ばす",
+			"next": "be_to_sleep",
+			"effect": {
 			"sleep": 1
-		  }
+		}
 		},
 		{
 		  "label": "まだ悩む",
