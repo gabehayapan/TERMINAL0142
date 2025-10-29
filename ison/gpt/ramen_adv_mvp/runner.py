@@ -3,12 +3,13 @@
 Ultra-fast MVP: Text-based 'No Midnight Ramen' ADV
 Usage: python3 runner.py
 """
-import json, sys, os, time, sys
+import json, sys, os, time, threading
 
 from animation import opening_animation
 from animation import ending_animation
 
 SCENARIO_FILE = os.path.join(os.path.dirname(__file__), "scenario.json")
+
 
 def load_scenario(path):
     try:
@@ -37,12 +38,30 @@ def apply_effect(state, effect):
     for k, v in effect.items():
         state[k] = state.get(k, 0) + v
 
+def parse_duration(s):
+	if ":" in s:
+		m, s = s.split(":")
+		return int(m) * 60 + ins(s)
+	return int(s)
+
+def beep():
+	data = load_scenario(SCENARIO_FILE)
+	node_id = data.get("finish")
+	nodes = data.get("nodes", {})
+	state = {"will": 0, "sleep": 0}
+
+
 def main():
 	opening_animation()
 	data = load_scenario(SCENARIO_FILE)
 	node_id = data.get("start")
 	nodes = data.get("nodes", {})
 	state = {"will": 0, "sleep": 0}
+
+	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
+	timer_sec = parse_duration(user_input)
+	timer = threading.Timer(sec, beep)
+	timer.start()
 
 	while True:
 		node = nodes.get(node_id)
