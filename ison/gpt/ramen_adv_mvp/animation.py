@@ -127,9 +127,6 @@ def opening_animation():
 
     print("\n")
 
-# Call the function to display the animation
-opening_animation()
-
 def ending_animation():
     frames = [
 	"""\
@@ -314,4 +311,3 @@ def ending_animation():
 
     print("\n")
 
-ending_animation()
