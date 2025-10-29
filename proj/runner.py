@@ -45,11 +45,7 @@ def parse_duration(s):
 	return int(s)
 
 def beep():
-	data = load_scenario(SCENARIO_FILE)
-	node_id = data.get("finish")
-	nodes = data.get("nodes", {})
-	state = {"will": 0, "sleep": 0}
-
+	
 
 def main():
 	opening_animation()

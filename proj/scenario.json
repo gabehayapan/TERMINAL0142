@@ -1,0 +1,225 @@
+{
+	"start": "room_0",
+	"finish": "room_1",
+
+	"nodes": {
+
+	"room_0": {
+		"text": "深夜01:42。またカップラーメンを作り始めてしまった。",
+		"choices": [
+			"label": "↵",
+			"next": "first",
+			"effect": {
+				"sleep": 1
+			}
+		]
+	},
+
+	"first":	{
+		"text":	"深夜になるといつもお腹がすいてしまう。",
+		"choices":	[
+		{
+			"label": "まあ、いつものことか",
+			"next": "still-fine",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "あれだけ食べないと誓ったのに、、",
+			"next": "regret",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "今日は食べない日じゃなかったのか？",
+			"next": "ask",
+			"effect": {
+			"sleep": 1
+			}
+		}
+		]
+	},
+
+	"still-fine": {
+		"text": "まあね、今日はね。",
+		"choices": [
+			{
+				"label": "いいよ。今日までは",
+				"next": "still-fine",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "今日までだから。明日からは食べないから。",
+				"next": "swear",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "昨日も食べたっけか",
+				"next": "remember",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_1"
+	},
+
+	"swear": {
+		"text": "今日が最後の深夜カップ麺",
+		"choices": [
+			{
+				"label": "って昨日も言っていたような",
+				"next": "remember",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "って昨日も言ってたじゃん",
+				"next": "regret",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "って毎日言ってる。本当に",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_1"
+	},
+
+	"remember":	{
+		"text":	"そうだ。あの濃ゆいufoを最後にしたんだった。",
+			"choices":	[
+			{
+				"label": "でもあのソースがうまいんだよなあ",
+				"next": "forget",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "あれだけ食べないと誓ったのに、、",
+				"next": "regret",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "今日は食べないと誓ったじゃないか！",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		]
+	},
+
+	"regret": {
+	  "text": "いつもいつも同じことをくりかえして、、、",
+	  "choices": [
+			{
+				"label": "でもあのソースがうまいんだよなあ",
+				"next": "end_1",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "学習能力のない奴は馬鹿だ。",
+				"next": "end_2",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "本当にこのままでいいのか?",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		]
+	},
+
+	"ask": {
+	  "text": "そうだ。今日こそは食べない、、",
+	  "choices": [
+			{
+				"label": "でもつくってしまったからな、、",
+				"next": "end_2",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "学習能力のない奴は馬鹿だ。",
+				"next": "end_2",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "よし！",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		]
+	},
+
+	"room_1": {
+		"text": "ピピピッ, ピピピッ, ...タイマーが鳴った。",
+		"choices": [
+			{
+				"label": "時間か。食べよう",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			},
+			{
+				"label": "食べちゃだめだ",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			},
+			{
+				"label": "時間か。食べよう",
+				"next": "end_1",
+				"effect": {
+					"sleep": 1
+				}
+			}
+		]
+	},
+
+	"end_1": {
+	  "text": "今日も旨そうなカップ麺。背徳感やべえ！",
+	  "choices": []
+	},
+
+	"end_2": {
+	  "text": "僕はダメな人間なんだ。",
+	  "choices": []
+	},
+
+	"end_3": {
+	  "text": "わかった！このカップ麺全部ベランダから投げ捨ててやる！",
+	  "choices": []
+	}
+	}
+}
+
