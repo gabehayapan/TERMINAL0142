@@ -101,18 +101,20 @@ async def main():
 	state = {"will": 0, "sleep": 0}
 	wait_for_start();
 
-	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
-	timer_sec = parse_duration(user_input)
+#	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
+#	timer_sec = parse_duration(user_input)
 	story = asyncio.create_task(asyncio_story(node_id, nodes, state))
-	await_timer = asyncio.create_task(asyncio_timer(timer_sec, story))
+#	await_timer = asyncio.create_task(asyncio_timer(timer_sec, story))
 
-	await await_timer
-	last_node = await story
+#	await await_timer
+#	last_node = await story
 
-	time_to_eat(data, nodes, last_node)
+#	time_to_eat(data, nodes, last_node)
+
+	await story
 
 	clear_screen()
-	display_current_time(timer_sec)
+#	display_current_time(timer_sec)
 	time.sleep(2)
 	clear_screen()
 	ending_animation()

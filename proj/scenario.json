@@ -1,6 +1,5 @@
 {
 	"start": "room_0",
-	"finish": "room_1",
 
 	"nodes": {
 
@@ -151,7 +150,7 @@
 			"label": "本当にこのままでいいのか?",
 			"next": "ask",
 			"effect": {
-			"sleep":
+			"sleep": 1
 			}
 		}
 		],
@@ -191,7 +190,7 @@
 	  "choices": [
 			{
 				"label": "ってまただ。気がついたらカップ麺のこと考えてる。",
-				"next": "regret",
+				"next": "end_2",
 				"effect": {
 				"sleep": 1
 				}
@@ -226,7 +225,7 @@
 			},
 			{
 				"label": "俺って最低だ。",
-				"next": "deprecate",
+				"next": "end_3",
 				"effect": {
 				"sleep": 1
 				}
@@ -317,7 +316,7 @@
 			},
 			{
 				"label": "よし！",
-				"next": "ask",
+				"next": "end_1",
 				"effect": {
 				"sleep": 1
 				}
@@ -331,14 +330,14 @@
 	  "choices": [
 			{
 				"label": "ペコ食べるか〜？カップ麺？",
-				"next": "peco",
+				"next": "end_1",
 				"effect": {
 				"sleep": 1
 				}
 			},
 			{
 				"label": "犬にやるのはもったいないな。でも、",
-				"next": "ask",
+				"next": "end_4",
 				"effect": {
 				"sleep": 1
 				}
@@ -371,8 +370,9 @@
 	},
 
 	"end_4": {
-	  "text": ",,,食品ロスは良くないな。",
+	  "text": "食品ロスは良くないな。",
 	  "choices": []
 	}
+
 	}
 }
