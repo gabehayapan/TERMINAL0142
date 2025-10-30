@@ -10,6 +10,7 @@ from animation import ending_animation
 from animation import clear_screen
 from graphics import print_clock_room_0
 from graphics import display_current_time
+from endroll import endroll_animation
 
 SCENARIO_FILE = os.path.join(os.path.dirname(__file__), "scenario.json")
 
@@ -49,10 +50,6 @@ def parse_duration(s):
 		return int(m) * 60 + int(s)
 	return int(s)
 
-async def asyncio_timer(timer_sec, story):
-	await asyncio.sleep(timer_sec)
-	story.cancel()
-
 async def asyncio_story(node_id, nodes, state):
 	try:
 		while True:
@@ -85,13 +82,15 @@ async def asyncio_story(node_id, nodes, state):
 	except asyncio.CancelledError:
 		return node;
 
+async def asyncio_timer(timer_sec):
+	await asyncio.sleep(timer_sec)
+
 def time_to_eat(data, nodes, last_node):
 	print("\n" + "ピピピッ, ピピピッ, ...タイマーが鳴った。")
 	end_node_id = last_node["end"]
 	clear_screen()
 	node = nodes.get(node_id)
 	more = print_node(node)
-
 
 async def main():
 	opening_animation()
@@ -103,8 +102,8 @@ async def main():
 
 #	user_input = input("タイマーを設定してください(sec or mm:ss) : ")
 #	timer_sec = parse_duration(user_input)
+#	await_timer = asyncio.create_task(asyncio_timer(timer_sec))
 	story = asyncio.create_task(asyncio_story(node_id, nodes, state))
-#	await_timer = asyncio.create_task(asyncio_timer(timer_sec, story))
 
 #	await await_timer
 #	last_node = await story
@@ -118,6 +117,7 @@ async def main():
 	time.sleep(2)
 	clear_screen()
 	ending_animation()
+	endroll_animation()
 
 	# エンディング後にステート表示（デバッグ用）
 	print("\n[あなたのステータス]")
