@@ -1,17 +1,18 @@
 {
 	"start": "room_0",
-	"finish": "room_1",
 
 	"nodes": {
 
 	"room_0": {
 		"text": "深夜01:42。またカップラーメンを作り始めてしまった。",
 		"choices": [
+		{
 			"label": "↵",
 			"next": "first",
 			"effect": {
 				"sleep": 1
 			}
+		}
 		],
 		"end": "end_1"
 	},
@@ -149,7 +150,7 @@
 			"label": "本当にこのままでいいのか?",
 			"next": "ask",
 			"effect": {
-			"sleep":
+			"sleep": 1
 			}
 		}
 		],
@@ -372,5 +373,6 @@
 	  "text": "食品ロスは良くないな。",
 	  "choices": []
 	}
-}
 
+	}
+}
