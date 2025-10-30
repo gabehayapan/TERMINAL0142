@@ -12,7 +12,8 @@
 			"effect": {
 				"sleep": 1
 			}
-		]
+		],
+		"end": "end_1"
 	},
 
 	"first":	{
@@ -20,7 +21,7 @@
 		"choices":	[
 		{
 			"label": "まあ、いつものことか",
-			"next": "still-fine",
+			"next": "fine",
 			"effect": {
 			"sleep": 1
 			}
@@ -39,15 +40,16 @@
 			"sleep": 1
 			}
 		}
-		]
+		],
+		"end": "end_1"
 	},
 
-	"still-fine": {
+	"fine": {
 		"text": "まあね、今日はね。",
 		"choices": [
 			{
 				"label": "いいよ。今日までは",
-				"next": "still-fine",
+				"next": "fine",
 				"effect": {
 				"sleep": 1
 				}
@@ -67,7 +69,7 @@
 				}
 			}
 		],
-		"end": "end_1"
+		"end": "end_2"
 	},
 
 	"swear": {
@@ -88,18 +90,18 @@
 				}
 			},
 			{
-				"label": "って毎日言ってる。本当に",
+				"label": "って毎日言ってる。本当にそれでいいのか？",
 				"next": "ask",
 				"effect": {
 				"sleep": 1
 				}
 			}
 		],
-		"end": "end_1"
+		"end": "end_2"
 	},
 
 	"remember":	{
-		"text":	"そうだ。あの濃ゆいufoを最後にしたんだった。",
+		"text":	"そうだ。あの濃ゆいufoを最後に誓ったんだった。",
 			"choices":	[
 			{
 				"label": "でもあのソースがうまいんだよなあ",
@@ -122,49 +124,135 @@
 				"sleep": 1
 				}
 			}
-		]
+		],
+		"end": "end_1"
 	},
 
 	"regret": {
-	  "text": "いつもいつも同じことをくりかえして、、、",
-	  "choices": [
-			{
-				"label": "でもあのソースがうまいんだよなあ",
-				"next": "end_1",
-				"effect": {
-				"sleep": 1
-				}
-			},
-			{
-				"label": "学習能力のない奴は馬鹿だ。",
-				"next": "end_2",
-				"effect": {
-				"sleep": 1
-				}
-			},
-			{
-				"label": "本当にこのままでいいのか?",
-				"next": "ask",
-				"effect": {
-				"sleep": 1
-				}
+		"text": "いつもいつも同じことをくりかえして、、、",
+		"choices": [
+		{
+			"label": "でもあのソースがうまいんだよなあ",
+			"next": "forget",
+			"effect": {
+			"sleep": 1
 			}
-		]
+		},
+		{
+			"label": "精神的に向上心のない奴は馬鹿だ。",
+			"next": "deprecate",
+			"effect": {
+			"sleep": 1
+			}
+		},
+		{
+			"label": "本当にこのままでいいのか?",
+			"next": "ask",
+			"effect": {
+			"sleep":
+			}
+		}
+		],
+		"end": "end_3"
 	},
 
 	"ask": {
 	  "text": "そうだ。今日こそは食べない、、",
 	  "choices": [
 			{
-				"label": "でもつくってしまったからな、、",
-				"next": "end_2",
+				"label": "食べないけど、作っちゃったな、、",
+				"next": "made",
 				"effect": {
 				"sleep": 1
 				}
 			},
 			{
-				"label": "学習能力のない奴は馬鹿だ。",
-				"next": "end_2",
+				"label": "いつもいつも食べないと言って、、",
+				"next": "deprecate",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": ",,,デジャヴ?",
+				"next": "remember",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_1"
+	},
+
+	"forget": {
+	  "text": "ソースもいいけど、塩もいいよな〜",
+	  "choices": [
+			{
+				"label": "ってまただ。気がついたらカップ麺のこと考えてる。",
+				"next": "regret",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "ってだめだ。カップ麺ばっか食べてるから、、",
+				"next": "body",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "ってもう！どうしてカップ麺はこんなにうまいんだよ！？",
+				"next": "anger",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_1"
+	},
+
+	"deprecate": {
+	  "text": "食べないと言って、深夜カップ麺を食べてしまう",
+	  "choices": [
+			{
+				"label": "俺って馬鹿だ。",
+				"next": "deprecate",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "俺って最低だ。",
+				"next": "deprecate",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "俺って最悪だ。",
+				"next": "forget",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_3"
+	},
+
+	"made": {
+	  "text": "もうちょっとでできるけど、",
+	  "choices": [
+			{
+				"label": "ペコ（犬）にあげるか",
+				"next": "peco",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "やっぱり食べるか",
+				"next": "fine",
 				"effect": {
 				"sleep": 1
 				}
@@ -176,51 +264,113 @@
 				"sleep": 1
 				}
 			}
-		]
+		],
+		"end": "end_4"
 	},
 
-	"room_1": {
-		"text": "ピピピッ, ピピピッ, ...タイマーが鳴った。",
-		"choices": [
+	"body": {
+	  "text": "いつまでもお腹の肉が落ちないで、体がだらしないまま。",
+	  "choices": [
 			{
-				"label": "時間か。食べよう",
-				"next": "end_1",
+				"label": "だから今日こそは、食べてはいけないだろう？",
+				"next": "ask",
 				"effect": {
-					"sleep": 1
+				"sleep": 1
 				}
 			},
 			{
-				"label": "食べちゃだめだ",
-				"next": "end_1",
+				"label": "昨日も一昨日も、\"深夜にカップ麺\"だったっけか",
+				"next": "remember",
 				"effect": {
-					"sleep": 1
+				"sleep": 1
 				}
 			},
 			{
-				"label": "時間か。食べよう",
-				"next": "end_1",
+				"label": "もうこういう運命なんだよ。",
+				"next": "regret",
 				"effect": {
-					"sleep": 1
+				"sleep": 1
 				}
 			}
-		]
+		],
+		"end": "end_3"
 	},
 
+	"anger": {
+	  "text": "ああもうムカついてきた！自分にもこの麺にも！",
+	  "choices": [
+			{
+				"label": "なんで俺はこうなんだよ！",
+				"next": "anger",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "カップ麺が悪いんだ。いつも誘惑しやがって",
+				"next": "made",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "よし！",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_2"
+	},
+
+	"peco": {
+	  "text": "ワン！",
+	  "choices": [
+			{
+				"label": "ペコ食べるか〜？カップ麺？",
+				"next": "peco",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "犬にやるのはもったいないな。でも、",
+				"next": "ask",
+				"effect": {
+				"sleep": 1
+				}
+			},
+			{
+				"label": "ん？なんで犬にやろうとしてるんだ俺は？",
+				"next": "anger",
+				"effect": {
+				"sleep": 1
+				}
+			}
+		],
+		"end": "end_4"
+	},
+
+
 	"end_1": {
-	  "text": "今日も旨そうなカップ麺。背徳感やべえ！",
+	  "text": "いただきます。",
 	  "choices": []
 	},
 
 	"end_2": {
-	  "text": "僕はダメな人間なんだ。",
+	  "text": "今日も旨そうなカップ麺。背徳感やべえ！",
 	  "choices": []
 	},
 
 	"end_3": {
-	  "text": "わかった！このカップ麺全部ベランダから投げ捨ててやる！",
+	  "text": "僕はダメな人間なんだ。",
+	  "choices": []
+	},
+
+	"end_4": {
+	  "text": ",,,食品ロスは良くないな。",
 	  "choices": []
 	}
-	}
-
 }
 
