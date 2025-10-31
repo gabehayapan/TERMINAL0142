@@ -1,7 +1,7 @@
 import sys
 import asyncio
 
-def print_clock_start():
+def display_clock_start():
 	graphic = """
  _______________________
 |                       |
@@ -102,7 +102,7 @@ def display_broken():
 def display_current_time(timer_sec):
 	if (timer_sec < 60):
 		display_clock_start()
-	else if (timer_sec < 120):
+	elif (timer_sec < 120):
 		display_60()
 	elif (timer_sec < 180):
 		display_120()
