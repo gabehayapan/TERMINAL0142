@@ -348,6 +348,6 @@ def ending_animation():
         sys.stdout.write("\r" + frame)  # Overwrite the current line
         sys.stdout.flush()  # Force the output to update immediately
         time.sleep(0.5)  # Time interval between frames
-
+    time.sleep(1.5)
     print("\n")
 
