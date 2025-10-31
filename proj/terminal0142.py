@@ -7,6 +7,7 @@ from animation import ending_animation
 from animation import clear_screen
 from graphics import display_clock_start
 from graphics import display_current_time
+from endroll import endroll_animation
 
 FILE_NAME = "scenario.json"
 SCENARIO_FILE = os.path.join(os.path.dirname(__file__), FILE_NAME)
@@ -135,6 +136,7 @@ def main():
 
 	clear_screen()
 	ending_animation()
+	endroll_animation()
 	end_the_game()
 
 if __name__ == "__main__":

@@ -52,7 +52,7 @@ def endroll_animation():
         clear_screen()
         sys.stdout.write("\r" + frame)  # Overwrite the current line
         sys.stdout.flush()  # Force the output to update immediately
-        time.sleep(4)  # Time interval between frames
+        time.sleep(2)  # Time interval between frames
     clear_screen()
 
     print("\n")
